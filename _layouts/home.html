@@ -1,0 +1,43 @@
+---
+layout: default
+---
+<div class="wrapper">
+  <section class="hero">
+    <h1 class="hero-title">{{ site.title | escape }}</h1>
+    {%- if site.description -%}
+      <p class="hero-desc">{{ site.description | escape }}</p>
+    {%- endif -%}
+  </section>
+
+  {%- if site.posts.size > 0 -%}
+    <section class="post-list" aria-label="文章列表">
+      {%- for post in site.posts -%}
+        <a class="post-card" href="{{ post.url | relative_url }}">
+          <div class="post-meta-row">
+            <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
+              {{ post.date | date: "%Y 年 %-m 月 %-d 日" }}
+            </time>
+            {%- if post.tags.size > 0 -%}
+              <span class="meta-dot">·</span>
+              {%- for tag in post.tags -%}
+                <span class="tag">{{ tag }}</span>
+              {%- endfor -%}
+            {%- endif -%}
+          </div>
+
+          <h2 class="post-card-title">{{ post.title | escape }}</h2>
+
+          {%- if post.excerpt and post.excerpt != "" -%}
+            <p class="post-card-excerpt">
+              {{ post.excerpt | strip_html | strip_newlines | truncate: 110 }}
+            </p>
+          {%- endif -%}
+
+          <span class="post-card-more">阅读全文<span class="arrow">→</span></span>
+        </a>
+      {%- endfor -%}
+    </section>
+  {%- else -%}
+    <p class="empty">还没有文章，去 <code>_posts/</code> 里写第一篇吧。</p>
+  {%- endif -%}
+</div>

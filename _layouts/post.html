@@ -1,0 +1,53 @@
+---
+layout: default
+---
+<div class="wrapper">
+  <article class="post">
+    <a class="back-link" href="{{ '/' | relative_url }}">
+      <span class="arrow">←</span> 返回首页
+    </a>
+
+    <header class="post-header">
+      <h1 class="post-title">{{ page.title | escape }}</h1>
+      <p class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">
+          {{ page.date | date: "%Y 年 %-m 月 %-d 日" }}
+        </time>
+        {%- assign chars = content | strip_html | strip_newlines | size -%}
+        <span class="meta-dot">·</span>
+        <span>约 {{ chars | divided_by: 400 | plus: 1 }} 分钟读完</span>
+        {%- if page.tags.size > 0 -%}
+          <span class="meta-dot">·</span>
+          {%- for tag in page.tags -%}
+            <span class="tag">{{ tag }}</span>
+          {%- endfor -%}
+        {%- endif -%}
+      </p>
+    </header>
+
+    <hr class="post-divider">
+
+    <div class="post-content">
+      {{ content }}
+    </div>
+  </article>
+
+  {%- if page.previous or page.next -%}
+    <nav class="post-nav" aria-label="上一篇 / 下一篇">
+      {%- if page.previous -%}
+        <a class="post-nav-item" href="{{ page.previous.url | relative_url }}">
+          <span class="post-nav-label">← 上一篇</span>
+          <span class="post-nav-title">{{ page.previous.title | escape }}</span>
+        </a>
+      {%- endif -%}
+      {%- if page.next -%}
+        <a class="post-nav-item post-nav-next" href="{{ page.next.url | relative_url }}">
+          <span class="post-nav-label">下一篇 →</span>
+          <span class="post-nav-title">{{ page.next.title | escape }}</span>
+        </a>
+      {%- endif -%}
+    </nav>
+  {%- endif -%}
+
+  {%- include comments.html -%}
+</div>

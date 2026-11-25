@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'zh-CN' }}">
+{%- include head.html -%}
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+
+  {%- include header.html -%}
+
+  <main id="main" class="site-main">
+    {{ content }}
+  </main>
+
+  {%- include footer.html -%}
+
+  <script>
+    (function () {
+      var btn = document.querySelector('.theme-toggle');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        var root = document.documentElement;
+        var cur = root.getAttribute('data-theme');
+        if (!cur) {
+          cur = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+            ? 'dark' : 'light';
+        }
+        var next = cur === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+      });
+    })();
+  </script>
+</body>
+</html>
