@@ -38,6 +38,13 @@ header_pages:
 # ----------【选填】评论区 ----------
 # 留空 = 不显示评论，网站照常工作
 giscus:
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
   repo: ""
   repo_id: ""
   category: "Announcements"
