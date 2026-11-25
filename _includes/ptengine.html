@@ -1,0 +1,9 @@
+{%- comment -%}
+  Ptengine（铂金分析）统计代码。
+  只在正式环境加载。
+{%- endcomment -%}
+{%- if jekyll.environment == "production" -%}
+<!-- Ptengine Tag -->
+<script src="https://js.ptengine.com/58mwvkn2.js"></script>
+<!-- End Ptengine Tag -->
+{%- endif -%}
