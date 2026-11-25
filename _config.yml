@@ -1,5 +1,5 @@
 # ============================================================
-#  网站总配置 —— 只有标了【必改】的地方需要动
+#  网站总配置
 # ============================================================
 
 # ----------【必改 1】网站名字 ----------
@@ -10,17 +10,12 @@ description: >-
   记录学习、写作与生活。
 
 # ----------【必改 3】你的网址 ----------
-# 情况 A：仓库名是 你的用户名.github.io
-url: "https://你的用户名.github.io"
+url: "https://pengyu-lv.github.io"
 baseurl: ""
 
-# 情况 B：仓库名是别的名字，比如 mypage
-# url: "https://你的用户名.github.io"
-# baseurl: "/mypage"
-
 lang: zh-CN
-author: 你的名字
-email: you@example.com
+author: pengyu
+email: pengyu.lv@ptmind.com
 
 # ============================================================
 #  以下通常不用改
@@ -35,16 +30,17 @@ show_excerpts: true
 header_pages:
   - about.md
 
-# ----------【选填】评论区 ----------
-# 留空 = 不显示评论，网站照常工作
-giscus:
-
+# ---------- 文章默认布局 ----------
 defaults:
   - scope:
       path: ""
       type: posts
     values:
       layout: post
+
+# ----------【选填】评论区 ----------
+# 留空 = 不显示评论，网站照常工作
+giscus:
   repo: ""
   repo_id: ""
   category: "Announcements"
