@@ -3,17 +3,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
-  {%- seo -%}
+
+  <link rel="preconnect" href="https://js.ptengine.com">
+
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+
+  {%- include ptengine.html -%}        
+
+  {%- seo -%}
   {%- feed_meta -%}
-  <script>
-    (function () {
-      try {
-        var t = localStorage.getItem('theme');
-        if (t === 'dark' || t === 'light') {
-          document.documentElement.setAttribute('data-theme', t);
-        }
-      } catch (e) {}
-    })();
-  </script>
+  <script>/* 主题初始化 */</script>
 </head>
